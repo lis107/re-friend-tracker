@@ -1,14 +1,14 @@
 /* angular/path imports */
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 /* model imports */
-import {GuiModel} from "./gui-model/guimodel";
+import { GuiModel } from "./gui-model/guimodel";
 import * as handler from "./gui-model/form/handlers";
 import * as beans from "./gui-model/generated/forms";
-import {TranslationService} from "path-framework/app/path-framework/service/translation.service";
-import {ExampleTranslationService} from "./example-translation-service";
-import {PathAppComponent} from "path-framework/app/path-framework/path-app.component";
-import {PathService} from "path-framework/app/path-framework/service/path.service";
+import { TranslationService } from "path-framework/app/path-framework/service/translation.service";
+import { ExampleTranslationService } from "./example-translation-service";
+import { PathAppComponent } from "path-framework/app/path-framework/path-app.component";
+import { PathService } from "path-framework/app/path-framework/service/path.service";
 
 @Component({
     selector: "path-application",
@@ -50,6 +50,10 @@ export class ExampleAppComponent extends PathAppComponent {
         } else if (window.location.hostname.indexOf("gitpod.io") !== -1) {
             let gitpodUrl = window.location.origin + "/";
             gitpodUrl = gitpodUrl.replace("https://4200", "https://8080");
+            return gitpodUrl + "services";
+        } else if (window.location.hostname.indexOf("github.dev") !== -1) {
+            let gitpodUrl = window.location.origin + "/";
+            gitpodUrl = gitpodUrl.replace("-4200", "-8080");
             return gitpodUrl + "services";
         }
         let url: string = window.location.href;
